@@ -1,0 +1,1955 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090604">
+
+<title>Ceyhan Kebap Salonu | Ateşten Sofraya</title>
+
+<meta name="description"
+content="Ceyhan Kebap Salonu için hazırlanmış premium restoran web sitesi tasarım konsepti.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --black:#080604;
+  --black2:#0e0a07;
+  --panel:#15100c;
+  --cream:#f1e5d1;
+  --cream2:#cbbda7;
+  --muted:#93877a;
+  --fire:#d94b22;
+  --fire2:#ff7440;
+  --line:rgba(241,229,209,.14);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--black);
+  color:var(--cream);
+  font-family:"DM Sans",Arial,sans-serif;
+  overflow-x:hidden;
+}
+
+body::-webkit-scrollbar{
+  width:7px;
+}
+
+body::-webkit-scrollbar-track{
+  background:#090604;
+}
+
+body::-webkit-scrollbar-thumb{
+  background:#5c3526;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+img{
+  width:100%;
+  display:block;
+}
+
+button{
+  font:inherit;
+}
+
+::selection{
+  background:var(--fire);
+  color:white;
+}
+
+.container{
+  width:min(1380px,91%);
+  margin:auto;
+}
+
+/* =========================================
+   LOADER
+========================================= */
+
+.loader{
+  position:fixed;
+  inset:0;
+  background:#070402;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.8s ease;
+}
+
+.loader.hide{
+  opacity:0;
+  visibility:hidden;
+}
+
+.loader-inner{
+  text-align:center;
+}
+
+.loader-mark{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(38px,7vw,80px);
+  line-height:1;
+}
+
+.loader-mark em{
+  color:var(--fire2);
+  font-weight:500;
+}
+
+.loader-sub{
+  margin-top:16px;
+  font-size:8px;
+  letter-spacing:6px;
+  color:#75675c;
+  text-transform:uppercase;
+}
+
+.loader-bar{
+  width:240px;
+  height:1px;
+  background:#2b1e17;
+  margin:25px auto 0;
+  overflow:hidden;
+}
+
+.loader-bar::after{
+  content:"";
+  display:block;
+  height:100%;
+  width:45%;
+  background:var(--fire);
+  animation:load 1.15s infinite ease-in-out;
+}
+
+@keyframes load{
+  0%{transform:translateX(-120%)}
+  100%{transform:translateX(330%)}
+}
+
+/* =========================================
+   NAV
+========================================= */
+
+nav{
+  position:fixed;
+  left:0;
+  right:0;
+  top:0;
+  height:88px;
+  z-index:500;
+  transition:.4s;
+}
+
+nav.scrolled{
+  background:rgba(8,6,4,.88);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+
+.nav-inner{
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-family:"Playfair Display",serif;
+  font-size:25px;
+  line-height:.9;
+}
+
+.logo strong{
+  font-weight:500;
+}
+
+.logo span{
+  display:block;
+  margin-top:8px;
+  font-family:"DM Sans",sans-serif;
+  font-size:6px;
+  letter-spacing:5px;
+  color:#9b8978;
+  text-transform:uppercase;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:30px;
+  font-size:9px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.nav-links a{
+  color:#b6a99c;
+  transition:.25s;
+}
+
+.nav-links a:hover{
+  color:#fff;
+}
+
+.nav-cta{
+  border:1px solid rgba(255,255,255,.3);
+  padding:14px 21px;
+  color:#fff!important;
+}
+
+.nav-cta:hover{
+  background:var(--cream);
+  color:#080604!important;
+}
+
+.mobile-label{
+  display:none;
+  font-size:8px;
+  letter-spacing:2px;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero{
+  min-height:100svh;
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+}
+
+.hero-bg{
+  position:absolute;
+  inset:0;
+}
+
+.hero-bg img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform:scale(1.07);
+  animation:heroZoom 11s ease-out forwards;
+}
+
+@keyframes heroZoom{
+  to{transform:scale(1)}
+}
+
+.hero-bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(6,3,2,.96) 0%,
+      rgba(6,3,2,.65) 43%,
+      rgba(6,3,2,.17) 75%
+    ),
+    linear-gradient(
+      0deg,
+      #080604 0%,
+      rgba(8,6,4,.1) 42%
+    );
+}
+
+.ember{
+  position:absolute;
+  width:450px;
+  height:450px;
+  right:7%;
+  bottom:7%;
+  border-radius:50%;
+  background:
+    radial-gradient(
+      circle,
+      rgba(217,75,34,.17),
+      transparent 68%
+    );
+  filter:blur(10px);
+}
+
+.hero-content{
+  position:relative;
+  z-index:3;
+  padding-bottom:68px;
+  width:100%;
+}
+
+.eyebrow{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  font-size:8px;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  color:#b5a28f;
+  margin-bottom:23px;
+}
+
+.eyebrow::before{
+  content:"";
+  width:45px;
+  height:1px;
+  background:var(--fire);
+}
+
+.hero h1{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(70px,11.5vw,170px);
+  line-height:.72;
+  font-weight:500;
+  letter-spacing:-8px;
+}
+
+.hero h1 em{
+  color:transparent;
+  -webkit-text-stroke:1px rgba(241,229,209,.72);
+  font-weight:500;
+}
+
+.hero-bottom{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:40px;
+  margin-top:45px;
+}
+
+.hero-copy{
+  max-width:510px;
+  color:#b2a598;
+  font-size:13px;
+  line-height:1.9;
+}
+
+.hero-actions{
+  display:flex;
+  gap:10px;
+}
+
+.btn{
+  min-height:57px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:15px;
+  padding:0 27px;
+  background:var(--cream);
+  color:#0b0705;
+  border:1px solid var(--cream);
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  transition:.3s;
+}
+
+.btn:hover{
+  background:var(--fire);
+  border-color:var(--fire);
+  color:white;
+  transform:translateY(-3px);
+}
+
+.btn.outline{
+  background:transparent;
+  color:white;
+  border-color:rgba(255,255,255,.35);
+}
+
+.btn.outline:hover{
+  background:white;
+  color:#080604;
+  border-color:white;
+}
+
+/* =========================================
+   FIRE STRIP
+========================================= */
+
+.fire-strip{
+  overflow:hidden;
+  background:var(--fire);
+  color:#130704;
+  padding:14px 0;
+}
+
+.fire-track{
+  display:flex;
+  width:max-content;
+  animation:marquee 30s linear infinite;
+}
+
+.fire-track span{
+  white-space:nowrap;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+.fire-track span::after{
+  content:"✦";
+  margin:0 30px;
+}
+
+@keyframes marquee{
+  to{transform:translateX(-50%)}
+}
+
+/* =========================================
+   STORY
+========================================= */
+
+.story{
+  padding:150px 0;
+}
+
+.story-grid{
+  display:grid;
+  grid-template-columns:.55fr 1.45fr;
+  gap:90px;
+}
+
+.micro{
+  color:#756a60;
+  font-size:8px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+}
+
+.story h2{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(50px,7vw,100px);
+  line-height:.92;
+  letter-spacing:-5px;
+  font-weight:500;
+}
+
+.story h2 span{
+  color:#665a50;
+}
+
+.story-lower{
+  margin-top:90px;
+  border-top:1px solid var(--line);
+  padding-top:35px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+}
+
+.story-lower p{
+  max-width:560px;
+  color:#8e8277;
+  font-size:13px;
+  line-height:1.9;
+}
+
+.story-word{
+  font-family:"Playfair Display",serif;
+  text-align:right;
+  font-size:clamp(65px,9vw,135px);
+  line-height:.8;
+  color:#19110d;
+  -webkit-text-stroke:1px #47352c;
+}
+
+/* =========================================
+   FIRE FEATURE
+========================================= */
+
+.fire-feature{
+  width:96%;
+  margin:auto;
+  min-height:82vh;
+  position:relative;
+  overflow:hidden;
+}
+
+.fire-feature img{
+  position:absolute;
+  inset:0;
+  height:100%;
+  object-fit:cover;
+}
+
+.fire-feature::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      0deg,
+      rgba(8,4,2,.92),
+      rgba(8,4,2,.05) 60%
+    );
+}
+
+.fire-feature-content{
+  position:absolute;
+  left:5%;
+  right:5%;
+  bottom:55px;
+  z-index:2;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:40px;
+}
+
+.fire-feature h2{
+  font-family:"Playfair Display",serif;
+  font-weight:500;
+  font-size:clamp(55px,8vw,120px);
+  letter-spacing:-7px;
+  line-height:.8;
+}
+
+.fire-feature h2 em{
+  color:var(--fire2);
+}
+
+.fire-feature p{
+  max-width:390px;
+  color:#b8a99b;
+  font-size:12px;
+  line-height:1.8;
+}
+
+/* =========================================
+   SIGNATURE MENU
+========================================= */
+
+.signature{
+  padding:150px 0;
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:50px;
+  margin-bottom:70px;
+}
+
+.section-head h2{
+  margin-top:15px;
+  font-family:"Playfair Display",serif;
+  font-size:clamp(55px,8vw,115px);
+  font-weight:500;
+  line-height:.82;
+  letter-spacing:-7px;
+}
+
+.section-head p{
+  max-width:410px;
+  color:#82776d;
+  font-size:12px;
+  line-height:1.9;
+}
+
+.menu-list{
+  border-top:1px solid var(--line);
+}
+
+.menu-item{
+  position:relative;
+  display:grid;
+  grid-template-columns:75px 1fr 1fr 40px;
+  align-items:center;
+  gap:30px;
+  padding:40px 10px;
+  border-bottom:1px solid var(--line);
+  overflow:hidden;
+  transition:.35s;
+}
+
+.menu-item::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(217,75,34,.09),
+      transparent 55%
+    );
+  opacity:0;
+  transition:.35s;
+}
+
+.menu-item:hover{
+  padding-left:25px;
+}
+
+.menu-item:hover::before{
+  opacity:1;
+}
+
+.menu-item>*{
+  position:relative;
+  z-index:2;
+}
+
+.menu-num{
+  color:#574a40;
+  font-size:9px;
+}
+
+.menu-item h3{
+  font-family:"Playfair Display",serif;
+  font-weight:500;
+  font-size:clamp(28px,3.5vw,48px);
+  letter-spacing:-2px;
+}
+
+.menu-item p{
+  max-width:420px;
+  color:#786d63;
+  font-size:12px;
+  line-height:1.7;
+}
+
+.menu-arrow{
+  font-size:23px;
+  transition:.3s;
+}
+
+.menu-item:hover .menu-arrow{
+  color:var(--fire2);
+  transform:translateX(7px);
+}
+
+/* =========================================
+   EDITORIAL
+========================================= */
+
+.editorial{
+  min-height:850px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+}
+
+.editorial-image{
+  position:relative;
+  overflow:hidden;
+}
+
+.editorial-image img{
+  height:100%;
+  object-fit:cover;
+}
+
+.editorial-content{
+  background:#e5d5bd;
+  color:#120b07;
+  padding:85px 7vw;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.editorial-content .micro{
+  color:#6e5d4c;
+}
+
+.editorial-content h2{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(55px,7vw,100px);
+  font-weight:500;
+  letter-spacing:-6px;
+  line-height:.84;
+}
+
+.editorial-content h2 span{
+  color:#9b7f64;
+}
+
+.editorial-bottom{
+  border-top:1px solid rgba(0,0,0,.25);
+  padding-top:28px;
+}
+
+.editorial-bottom p{
+  color:#635445;
+  max-width:500px;
+  line-height:1.9;
+  font-size:13px;
+  margin-bottom:25px;
+}
+
+.editorial-content .btn{
+  background:#130c08;
+  color:#fff;
+  border-color:#130c08;
+}
+
+.editorial-content .btn:hover{
+  background:var(--fire);
+  border-color:var(--fire);
+}
+
+/* =========================================
+   GALLERY
+========================================= */
+
+.gallery-section{
+  padding:150px 0;
+}
+
+.gallery-title{
+  font-family:"Playfair Display",serif;
+  font-weight:500;
+  font-size:clamp(55px,8vw,115px);
+  letter-spacing:-7px;
+  line-height:.82;
+  margin:15px 0 70px;
+}
+
+.gallery-title span{
+  color:#4d4138;
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  grid-template-rows:420px 420px;
+  gap:12px;
+}
+
+.gallery-item{
+  position:relative;
+  overflow:hidden;
+  background:#15100c;
+}
+
+.gallery-item:first-child{
+  grid-row:1/3;
+}
+
+.gallery-item img{
+  height:100%;
+  object-fit:cover;
+  filter:saturate(.8) brightness(.82);
+  transition:.8s ease;
+}
+
+.gallery-item:hover img{
+  transform:scale(1.04);
+  filter:saturate(1) brightness(.95);
+}
+
+.gallery-label{
+  position:absolute;
+  bottom:20px;
+  left:20px;
+  background:rgba(10,6,4,.72);
+  backdrop-filter:blur(12px);
+  padding:10px 13px;
+  font-size:8px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.gallery-note{
+  margin-top:17px;
+  color:#574e47;
+  max-width:850px;
+  font-size:9px;
+  line-height:1.8;
+}
+
+/* =========================================
+   MANIFESTO
+========================================= */
+
+.manifesto{
+  background:var(--fire);
+  color:#140704;
+  padding:150px 0;
+}
+
+.manifesto .micro{
+  color:#4f1b0d;
+}
+
+.manifesto-text{
+  margin-top:30px;
+  max-width:1320px;
+  font-family:"Playfair Display",serif;
+  font-size:clamp(46px,7.2vw,105px);
+  font-weight:500;
+  line-height:.93;
+  letter-spacing:-6px;
+}
+
+.manifesto-text span{
+  color:rgba(20,7,4,.33);
+}
+
+/* =========================================
+   CONTACT
+========================================= */
+
+.contact{
+  min-height:95vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+}
+
+.contact-bg{
+  position:absolute;
+  inset:0;
+}
+
+.contact-bg img{
+  height:100%;
+  object-fit:cover;
+  filter:brightness(.28);
+}
+
+.contact-bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      90deg,
+      #080604 0%,
+      rgba(8,6,4,.8) 52%,
+      rgba(8,6,4,.22)
+    );
+}
+
+.contact-content{
+  position:relative;
+  z-index:2;
+  padding:120px 0;
+}
+
+.contact h2{
+  margin:25px 0 45px;
+  font-family:"Playfair Display",serif;
+  font-weight:500;
+  font-size:clamp(70px,11vw,165px);
+  line-height:.72;
+  letter-spacing:-10px;
+}
+
+.contact h2 span{
+  color:transparent;
+  -webkit-text-stroke:1px rgba(241,229,209,.55);
+}
+
+.contact-info{
+  max-width:900px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--line);
+  margin-bottom:35px;
+}
+
+.info{
+  padding:22px 30px 22px 0;
+}
+
+.info small{
+  display:block;
+  margin-bottom:7px;
+  color:#74695f;
+  font-size:8px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+.info strong{
+  font-size:13px;
+  font-weight:500;
+}
+
+/* =========================================
+   PREVIEW
+========================================= */
+
+.preview{
+  padding:45px 0;
+  background:#110c08;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.preview-grid{
+  display:grid;
+  grid-template-columns:.7fr 1.3fr;
+  gap:60px;
+}
+
+.preview p{
+  color:#70655c;
+  font-size:10px;
+  line-height:1.8;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer{
+  background:#050302;
+  padding:48px 0;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:end;
+  gap:40px;
+}
+
+.footer-logo{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(40px,6vw,85px);
+  line-height:.9;
+}
+
+.footer-logo em{
+  color:var(--fire2);
+}
+
+.footer-right{
+  text-align:right;
+  color:#514941;
+  font-size:9px;
+  line-height:1.9;
+}
+
+/* =========================================
+   ANIMATION
+========================================= */
+
+.reveal{
+  opacity:0;
+  transform:translateY(45px);
+  transition:
+    opacity .9s ease,
+    transform .9s cubic-bezier(.2,.7,.2,1);
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:none;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:950px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .mobile-label{
+    display:block;
+  }
+
+  .hero h1{
+    letter-spacing:-5px;
+  }
+
+  .hero-bottom,
+  .section-head,
+  .fire-feature-content{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .story-grid,
+  .story-lower,
+  .editorial,
+  .preview-grid,
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .story-word{
+    text-align:left;
+  }
+
+  .menu-item{
+    grid-template-columns:55px 1fr 30px;
+  }
+
+  .menu-item p{
+    display:none;
+  }
+
+  .editorial-image{
+    min-height:650px;
+  }
+
+  .gallery{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:520px 300px;
+  }
+
+  .gallery-item:first-child{
+    grid-column:1/3;
+    grid-row:auto;
+  }
+
+}
+
+@media(max-width:600px){
+
+  nav{
+    height:72px;
+  }
+
+  .hero{
+    min-height:93svh;
+  }
+
+  .hero-content{
+    padding-bottom:45px;
+  }
+
+  .hero h1{
+    font-size:clamp(62px,20vw,100px);
+    letter-spacing:-4px;
+  }
+
+  .hero-bottom{
+    margin-top:30px;
+  }
+
+  .hero-actions{
+    width:100%;
+  }
+
+  .hero-actions .btn{
+    flex:1;
+    padding:0 13px;
+  }
+
+  .story,
+  .signature,
+  .gallery-section{
+    padding:95px 0;
+  }
+
+  .story-grid{
+    gap:35px;
+  }
+
+  .story h2{
+    letter-spacing:-3px;
+  }
+
+  .story-lower{
+    margin-top:55px;
+    gap:35px;
+  }
+
+  .fire-feature{
+    width:100%;
+    min-height:700px;
+  }
+
+  .fire-feature-content{
+    left:7%;
+    right:7%;
+    bottom:35px;
+  }
+
+  .fire-feature h2{
+    letter-spacing:-4px;
+  }
+
+  .section-head{
+    margin-bottom:45px;
+  }
+
+  .section-head h2,
+  .gallery-title{
+    letter-spacing:-4px;
+  }
+
+  .menu-item{
+    padding:28px 5px;
+    grid-template-columns:35px 1fr 25px;
+    gap:12px;
+  }
+
+  .editorial{
+    min-height:auto;
+  }
+
+  .editorial-image{
+    min-height:570px;
+  }
+
+  .editorial-content{
+    padding:65px 30px;
+    min-height:650px;
+  }
+
+  .editorial-content h2{
+    letter-spacing:-4px;
+  }
+
+  .gallery{
+    display:block;
+  }
+
+  .gallery-item{
+    height:370px;
+    margin-bottom:10px;
+  }
+
+  .manifesto{
+    padding:100px 0;
+  }
+
+  .manifesto-text{
+    letter-spacing:-4px;
+  }
+
+  .contact{
+    min-height:850px;
+  }
+
+  .contact h2{
+    letter-spacing:-6px;
+  }
+
+  .contact-info{
+    grid-template-columns:1fr;
+  }
+
+  .info{
+    border-bottom:1px solid var(--line);
+  }
+
+  .footer-right{
+    text-align:left;
+  }
+
+}
+
+@media(prefers-reduced-motion:reduce){
+
+  *,
+  *::before,
+  *::after{
+    animation:none!important;
+    transition:none!important;
+    scroll-behavior:auto!important;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LOADER -->
+
+<div class="loader" id="loader">
+
+  <div class="loader-inner">
+
+    <div class="loader-mark">
+      Ceyhan <em>Kebap</em>
+    </div>
+
+    <div class="loader-sub">
+      Adana · Ocakbaşı
+    </div>
+
+    <div class="loader-bar"></div>
+
+  </div>
+
+</div>
+
+
+<!-- NAV -->
+
+<nav id="nav">
+
+  <div class="container nav-inner">
+
+    <a href="#home" class="logo">
+      <strong>Ceyhan Kebap</strong>
+      <span>Adana · Ocakbaşı</span>
+    </a>
+
+    <div class="nav-links">
+
+      <a href="#hikaye">Hikâye</a>
+      <a href="#lezzetler">Lezzetler</a>
+      <a href="#sofra">Sofra</a>
+      <a href="#iletisim">İletişim</a>
+
+      <a href="#iletisim" class="nav-cta">
+        Bize Ulaşın
+      </a>
+
+    </div>
+
+    <div class="mobile-label">
+      ADANA · TR
+    </div>
+
+  </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+  <div class="hero-bg">
+
+    <img
+      src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=2200&q=92"
+      alt="Ateş ve ızgara atmosferi">
+
+  </div>
+
+  <div class="ember"></div>
+
+  <div class="container hero-content">
+
+    <div class="eyebrow">
+      Adana · Ocakbaşı · Sofra
+    </div>
+
+    <h1>
+      ATEŞTEN<br>
+      <em>SOFRAYA.</em>
+    </h1>
+
+    <div class="hero-bottom">
+
+      <p class="hero-copy">
+        Ceyhan Kebap Salonu için ateşin, ustalığın ve
+        Adana sofra kültürünün güçlü karakterini modern
+        bir dijital deneyimle buluşturan premium restoran
+        konsepti.
+      </p>
+
+      <div class="hero-actions">
+
+        <a href="#lezzetler" class="btn">
+          Lezzetleri Keşfet
+          <span>↘</span>
+        </a>
+
+        <a href="#iletisim" class="btn outline">
+          İletişim
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- MARQUEE -->
+
+<div class="fire-strip">
+
+  <div class="fire-track">
+
+    <span>CEYHAN KEBAP</span>
+    <span>ADANA</span>
+    <span>ATEŞTEN SOFRAYA</span>
+    <span>OCAKBAŞI</span>
+    <span>KEBAP</span>
+    <span>KÜŞLEME</span>
+    <span>CİĞER ŞİŞ</span>
+    <span>SOFRA KÜLTÜRÜ</span>
+
+    <span>CEYHAN KEBAP</span>
+    <span>ADANA</span>
+    <span>ATEŞTEN SOFRAYA</span>
+    <span>OCAKBAŞI</span>
+    <span>KEBAP</span>
+    <span>KÜŞLEME</span>
+    <span>CİĞER ŞİŞ</span>
+    <span>SOFRA KÜLTÜRÜ</span>
+
+  </div>
+
+</div>
+
+
+<!-- STORY -->
+
+<section class="story" id="hikaye">
+
+  <div class="container">
+
+    <div class="story-grid reveal">
+
+      <div class="micro">
+        01 / CEYHAN
+      </div>
+
+      <h2>
+        İyi bir sofra
+        <span>ateşle değil,</span>
+        ustalıkla başlar.
+      </h2>
+
+    </div>
+
+
+    <div class="story-lower reveal">
+
+      <p>
+        Ceyhan Kebap Salonu'nun dijital dünyası için
+        hazırlanan bu konsept; ocakbaşı kültürünün
+        karakterini, sofranın sıcaklığını ve güçlü
+        lezzet sunumunu tek bir deneyimde bir araya
+        getiriyor.
+        <br><br>
+        İşletmenin kendi fotoğrafları, güncel menüsü
+        ve onayladığı marka hikâyesiyle tamamlandığında
+        gerçek bir dijital restoran vitrini hâline
+        getirilebilir.
+      </p>
+
+      <div class="story-word">
+        ATEŞ
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FIRE FEATURE -->
+
+<section class="fire-feature reveal">
+
+  <img
+    src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=2200&q=92"
+    alt="Temsilî ızgara ve et sunumu">
+
+  <div class="fire-feature-content">
+
+    <h2>
+      ATEŞ.<br>
+      USTALIK.<br>
+      <em>LEZZET.</em>
+    </h2>
+
+    <p>
+      Gerçek ocak, mutfak ve servis fotoğraflarıyla
+      bu bölüm Ceyhan Kebap'ın karakterini doğrudan
+      ziyaretçiye hissettiren sinematik bir marka
+      alanına dönüşebilir.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- SIGNATURE -->
+
+<section class="signature" id="lezzetler">
+
+  <div class="container">
+
+    <div class="section-head reveal">
+
+      <div>
+
+        <div class="micro">
+          02 / İMZA LEZZETLER
+        </div>
+
+        <h2>
+          OCAKTAN<br>
+          GELENLER.
+        </h2>
+
+      </div>
+
+      <p>
+        Bu bölümde öne çıkarılan lezzetler işletmeyle
+        yapılacak son doğrulama sonrasında güncel menü,
+        açıklamalar ve fiyatlarla tamamlanabilir.
+      </p>
+
+    </div>
+
+
+    <div class="menu-list">
+
+
+      <div class="menu-item reveal">
+
+        <span class="menu-num">
+          01
+        </span>
+
+        <h3>
+          Adana Kebap
+        </h3>
+
+        <p>
+          Ceyhan Kebap'ın menüsünde öne çıkan
+          geleneksel ocakbaşı lezzetlerinden biri.
+        </p>
+
+        <span class="menu-arrow">
+          ↗
+        </span>
+
+      </div>
+
+
+      <div class="menu-item reveal">
+
+        <span class="menu-num">
+          02
+        </span>
+
+        <h3>
+          Küşleme
+        </h3>
+
+        <p>
+          Ocakbaşı deneyiminin güçlü et
+          seçeneklerinden biri olarak menü
+          vitrininde sunulabilir.
+        </p>
+
+        <span class="menu-arrow">
+          ↗
+        </span>
+
+      </div>
+
+
+      <div class="menu-item reveal">
+
+        <span class="menu-num">
+          03
+        </span>
+
+        <h3>
+          Ciğer Şiş
+        </h3>
+
+        <p>
+          Ateş üzerinde hazırlanan ve Ceyhan
+          sofrasının öne çıkan seçeneklerinden biri.
+        </p>
+
+        <span class="menu-arrow">
+          ↗
+        </span>
+
+      </div>
+
+
+      <div class="menu-item reveal">
+
+        <span class="menu-num">
+          04
+        </span>
+
+        <h3>
+          Dana Kaburga Şiş
+        </h3>
+
+        <p>
+          İşletmenin güncel menüsü doğrulandıktan
+          sonra detaylı içerik ve sunum bilgileriyle
+          zenginleştirilebilir.
+        </p>
+
+        <span class="menu-arrow">
+          ↗
+        </span>
+
+      </div>
+
+
+      <div class="menu-item reveal">
+
+        <span class="menu-num">
+          05
+        </span>
+
+        <h3>
+          Mezeler
+        </h3>
+
+        <p>
+          Sofrayı tamamlayan güncel meze seçenekleri
+          işletmenin onayladığı menüyle birlikte
+          sergilenebilir.
+        </p>
+
+        <span class="menu-arrow">
+          ↗
+        </span>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- EDITORIAL -->
+
+<section class="editorial">
+
+  <div class="editorial-image">
+
+    <img
+      src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1500&q=90"
+      alt="Temsilî sofra ve yemek">
+
+  </div>
+
+
+  <div class="editorial-content">
+
+    <div>
+
+      <div class="micro">
+        03 / SOFRA
+      </div>
+
+      <h2>
+        SADECE<br>
+        YEMEK<br>
+        <span>DEĞİL.</span>
+      </h2>
+
+    </div>
+
+
+    <div class="editorial-bottom">
+
+      <p>
+        İyi bir restoran deneyimi tabakta başlayıp
+        orada bitmez. Mekân, servis, ateş, paylaşım
+        ve sofradaki atmosfer deneyimin tamamını
+        oluşturur.
+      </p>
+
+      <p>
+        Ceyhan Kebap'ın gerçek mekân ve sofra
+        fotoğraflarıyla bu bölüm tamamen işletmeye
+        özel bir hikâyeye dönüştürülebilir.
+      </p>
+
+      <a href="#iletisim" class="btn">
+        İletişime Geç
+        <span>↗</span>
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- GALLERY -->
+
+<section class="gallery-section" id="sofra">
+
+  <div class="container">
+
+    <div class="micro reveal">
+      04 / CEYHAN SOFRASI
+    </div>
+
+    <h2 class="gallery-title reveal">
+      ATEŞİN<br>
+      <span>HİKÂYESİ.</span>
+    </h2>
+
+
+    <div class="gallery">
+
+      <div class="gallery-item reveal">
+
+        <img
+          src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1500&q=90"
+          alt="Temsilî et sunumu">
+
+        <div class="gallery-label">
+          Ocak / 01
+        </div>
+
+      </div>
+
+
+      <div class="gallery-item reveal">
+
+        <img
+          src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1100&q=90"
+          alt="Temsilî sofra">
+
+        <div class="gallery-label">
+          Sofra / 02
+        </div>
+
+      </div>
+
+
+      <div class="gallery-item reveal">
+
+        <img
+          src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1100&q=90"
+          alt="Temsilî ızgara">
+
+        <div class="gallery-label">
+          Ateş / 03
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <p class="gallery-note">
+      Bu tasarım önizlemesinde kullanılan yemek ve restoran
+      fotoğrafları temsilîdir; Ceyhan Kebap Salonu'na ait
+      oldukları iddia edilmemektedir. Nihai sürümde işletmenin
+      onayladığı gerçek yemek, mekân ve ekip fotoğraflarıyla
+      değiştirilebilir.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- MANIFESTO -->
+
+<section class="manifesto">
+
+  <div class="container">
+
+    <div class="micro reveal">
+      CEYHAN / SOFRA MANİFESTOSU
+    </div>
+
+    <div class="manifesto-text reveal">
+
+      Önce ateş yanar.
+      <span>Sonra ustalık konuşur.</span>
+      Sofra kurulur.
+      <span>Lezzet paylaşılır.</span>
+      Geriye yalnızca
+      hatırlanan bir deneyim kalır.
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="iletisim">
+
+  <div class="contact-bg">
+
+    <img
+      src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=2200&q=90"
+      alt="Temsilî restoran atmosferi">
+
+  </div>
+
+
+  <div class="container contact-content">
+
+    <div class="micro">
+      05 / CEYHAN KEBAP
+    </div>
+
+    <h2>
+      SOFRA<br>
+      <span>HAZIR.</span>
+    </h2>
+
+
+    <div class="contact-info">
+
+      <div class="info">
+
+        <small>İşletme</small>
+
+        <strong>
+          Ceyhan Kebap Salonu
+        </strong>
+
+      </div>
+
+
+      <div class="info">
+
+        <small>Lokasyon</small>
+
+        <strong>
+          Seyhan · Adana
+        </strong>
+
+      </div>
+
+
+      <div class="info">
+
+        <small>Telefon</small>
+
+        <strong>
+          0322 458 69 90
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <a
+      href="tel:+903224586990"
+      class="btn">
+
+      Telefonla Ara
+      <span>↗</span>
+
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- PREVIEW NOTICE -->
+
+<section class="preview">
+
+  <div class="container preview-grid">
+
+    <div class="micro">
+      TASARIM ÖNİZLEMESİ
+    </div>
+
+    <p>
+      Bu web sitesi Ceyhan Kebap Salonu'na sunulmak üzere
+      bağımsız olarak hazırlanmış premium tasarım konseptidir.
+      İşletmenin resmî sitesi veya işletme tarafından onaylanmış
+      bir yayın değildir. İşletmenin onayından sonra gerçek
+      fotoğraflar, güncel menü, kesin iletişim bilgileri ve
+      diğer doğrulanmış içeriklerle nihai hâle getirilebilir.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="container footer-grid">
+
+    <div class="footer-logo">
+      Ceyhan <em>Kebap.</em>
+    </div>
+
+    <div class="footer-right">
+
+      CEYHAN KEBAP SALONU · ADANA
+      <br>
+      PREMIUM RESTAURANT DIGITAL CONCEPT
+      <br><br>
+      © 2026 · Tasarım Önizlemesi
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script>
+
+/* LOADER */
+
+window.addEventListener(
+  "load",
+  function(){
+
+    setTimeout(
+      function(){
+
+        document
+          .getElementById("loader")
+          .classList.add("hide");
+
+      },
+      700
+    );
+
+  }
+);
+
+
+/* NAV */
+
+const nav =
+document.getElementById("nav");
+
+window.addEventListener(
+  "scroll",
+  function(){
+
+    if(window.scrollY > 40){
+
+      nav.classList.add("scrolled");
+
+    }else{
+
+      nav.classList.remove("scrolled");
+
+    }
+
+  }
+);
+
+
+/* REVEAL */
+
+const observer =
+new IntersectionObserver(
+
+  function(entries){
+
+    entries.forEach(
+      function(entry){
+
+        if(entry.isIntersecting){
+
+          entry.target
+            .classList
+            .add("visible");
+
+          observer
+            .unobserve(entry.target);
+
+        }
+
+      }
+    );
+
+  },
+
+  {
+    threshold:.12
+  }
+
+);
+
+document
+  .querySelectorAll(".reveal")
+  .forEach(
+    function(element){
+
+      observer.observe(element);
+
+    }
+  );
+
+
+/* SUBTLE HERO PARALLAX */
+
+const heroImage =
+document.querySelector(".hero-bg img");
+
+window.addEventListener(
+  "scroll",
+  function(){
+
+    if(
+      window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches
+    ){
+      return;
+    }
+
+    const y =
+      Math.min(
+        window.scrollY * .07,
+        45
+      );
+
+    heroImage.style.transform =
+      "scale(1.02) translateY(" +
+      y +
+      "px)";
+
+  },
+  {
+    passive:true
+  }
+);
+
+</script>
+
+</body>
+</html>
